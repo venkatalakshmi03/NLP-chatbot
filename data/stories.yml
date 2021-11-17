@@ -1,0 +1,417 @@
+version: "2.0"
+
+stories:
+
+# - story: book room
+#   steps:
+#   - intent: book_room
+#   - action: utter_ask_num_room
+#   - intent: num_room_info
+#     entities:
+#     - number : "1"
+#   - action: utter_ask_type_room
+#   - intent: type_room_info
+#     entities:
+#     - type_room : "Simple"
+#   - action: utter_room_book_confirmation
+
+
+- story: book room
+  steps:
+  - intent: book_room
+  - action: room_book_form
+  - active_loop: room_book_form
+  - action: utter_ask_number
+  - intent: inform
+    entities:
+    - number: "1"
+  - action: utter_ask_type_room
+  - intent: inform
+    entities:
+    - type_room: "Simple"
+  # - action: room_book_form
+  # - active_loop: room_book_form
+  # - active_loop: null
+  # # - active_loop: null
+  - action: action_room_book_results
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: book room
+  steps:
+  - intent: book_room
+  - action: room_book_form
+  - active_loop: room_book_form
+  - action: utter_ask_number
+  - intent: inform
+    entities:
+    - number: "2"
+  - action: utter_ask_type_room
+  - intent: inform
+    entities:
+    - type_room: "Deluxe"
+  # - action: room_book_form
+  # - active_loop: room_book_form
+  # - active_loop: null
+  - action: action_room_book_results
+  - action: utter_anything_else
+  - intent: clean_room
+  - action: utter_roomclean_confirmation
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: room clean
+  steps:
+  - intent: clean_room
+  - action: utter_roomclean_confirmation
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: greetings
+  steps:
+  - intent: greet
+  - action: utter_greet
+
+
+- story: good bye
+  steps:
+  - intent: goodbye
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+
+- story: greetings + book room
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: book_room
+  - action: room_book_form
+  - active_loop: room_book_form
+  - action: utter_ask_number
+  - intent: inform
+    entities:
+    - number: "five"
+  - action: utter_ask_type_room
+  - intent: inform
+    entities:
+    - type_room: "Deluxe"
+  # - active_loop: null
+  # # - action: room_book_form
+  # # - active_loop: room_book_form
+  - action: action_room_book_results
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: greetings + cancellation+ chitchat
+  steps:
+  - intent: greet
+  - action: utter_greet
+  # - intent: book_room
+  # - action: utter_ask_number
+  # - intent: inform
+  #   entities:
+  #   - number: "6"
+  # - action: utter_ask_type_room
+  # - intent: inform
+  #   entities:
+  #   - type_room: "Simple"
+  # - action: room_book_form
+  # - active_loop: room_book_form
+  # # - action: action_room_book_results
+  # # - active_loop: null
+  # - action: utter_anything_else
+  - intent: ask_cancel_policy
+  - action: utter_cancel_policy_info
+  - action: utter_anything_else
+  - intent: ask_checkout_time
+  - action: utter_checkout_time_info
+  - action: utter_anything_else
+  - intent: chitchat/mood_unhappy
+  - action: utter_chitchat/mood_unhappy
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+# - story: greetings + book room
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: book_room
+#   - action: room_book_form
+#   - active_loop: room_book_form
+
+#   - action: utter_ask_number
+#   - intent: inform
+#     entities:
+#     - number: "10"
+#   - action: utter_ask_type_room
+#   - intent: inform
+#     entities:
+#     - type_room: "Simple"
+#   - active_loop: null
+#   # - action: room_book_form
+#   # - active_loop: room_book_form
+#   - action: action_room_book_results
+
+#   - action: utter_anything_else
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+
+- story: greetings + clean room
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: clean_room
+  - action: utter_roomclean_confirmation
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: greetings + clean room + foodtype + chitchat
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: clean_room
+  - action: utter_roomclean_confirmation
+  - action: utter_anything_else
+  - intent: american
+    entities:
+    - food_type: "american"
+  - action: action_search_restaurants
+  - action: utter_anything_else
+  - intent: chitchat/mood_great
+  - action: utter_chitchat/mood_great
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: foodtype
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: italian
+    entities:
+    - food_type: "italian"
+  - action: action_search_restaurants
+  - action: utter_anything_else
+  - intent: clean_room
+  - action: utter_roomclean_confirmation
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: start_chitchat
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: chitchat/mood_great
+  - action: utter_chitchat/mood_great
+  - action: utter_anything_else
+  - intent: ask_checkout_time
+  - action: utter_checkout_time_info
+  - intent: goodbye
+  - action: utter_anything_else
+  - intent: ask_cancel_policy
+  - action: utter_cancel_policy_info
+  - intent: goodbye
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: start_chitchat_1
+  steps:
+  - intent: chitchat/mood_unhappy
+  - action: utter_chitchat/mood_unhappy
+  - action: utter_anything_else
+  - intent: ask_checkin_time
+  - action: utter_checkin_time_info
+  - intent: goodbye
+  - action: utter_anything_else
+  - intent: ask_breakfast_available
+  - action: utter_breakfast_available_info
+  - intent: goodbye
+  - action: utter_anything_else
+  - intent: chitchat/capabilities
+  - action: utter_chitchat/capabilities
+  - intent: chitchat/confirm_presence
+  - action: utter_chitchat/confirm_presence
+  - intent: goodbye
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: ask_activities_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  # - intent: ask_what_to_do
+  # - action: utter_find_activity
+  - intent: ask_restaurant_time
+  - action: utter_restaurant_time_info
+  - intent: outdoors
+    entities:
+    - activity: "outdoors"
+  - action: utter_ask_activity_cost
+  - intent: pay_Activity
+    entities:
+    - cost: "pay"
+  - action: action_search_activities
+  - action: utter_anything_else
+  - intent: ask_breakfast_available
+  - action: utter_breakfast_available_info
+  - intent: goodbye
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: ask_activities_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  # - intent: ask_what_to_do
+  # - action: utter_find_activity
+  - intent: relax
+    entities:
+    - activity: "relax"
+  - action: utter_ask_activity_cost
+  - intent: pay_Activity
+    entities:
+    - cost: "free"
+  - action: action_search_activities
+  - action: utter_anything_else
+  - intent: ask_breakfast_time
+  - action: utter_breakfast_time_info
+  - intent: goodbye
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+
+- story: roomsupplies_extension
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_room_supplies
+  - action: utter_roomsupplies_confirmation
+  - action: utter_anything_else
+  - intent: ask_extend_room
+  - action: utter_roomextend_confirmation
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+# - story: multiturn_1 roombook+checkin
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: book_room
+#   - action: room_book_form
+#   - active_loop: room_book_form
+#   - action: utter_ask_number
+#   - intent: inform
+#     entities:
+#     - number: "10"
+#   - action: utter_ask_type_room
+#   - intent: ask_checkin_time
+#   - action: utter_checkin_time_info
+#   - active_loop: null
+#   - action: utter_continue_room_booking
+#   - intent: inform
+#     entities:
+#     - type_room: "Simple"
+#   - action: room_book_form
+#   - active_loop: room_book_form
+#   - active_loop: null
+#   - action: action_room_book_results
+
+#   - action: utter_anything_else
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - story: multiturn_2 roombook+checkin
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: book_room
+#   - action: room_book_form
+#   - active_loop: room_book_form
+#   - action: utter_ask_number
+#   - intent: inform
+#     entities:
+#     - number: "10"
+#   - action: utter_ask_type_room
+#   - intent: chitchat/mood_unhappy
+#   - active_loop: null
+#   - action: utter_chitchat/mood_unhappy
+#   - action: utter_continue_room_booking
+#   - intent: goodbye
+#   - action: utter_anything_else
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - story: unhappypath_1
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: book_room
+#   - action: utter_ask_number
+#   - intent: goodbye
+#   - action: utter_anything_else
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+- story: unhappypath_2_bookroom
+  steps:
+  - intent: greet
+  - action: utter_greet
+  # - intent: ask_what_to_do
+  # # - action: activity_form
+  # # - active_loop: activity_form
+  # - action: utter_find_activity
+  - intent: book_room
+  - action: room_book_form
+  - active_loop: room_book_form
+  - action: utter_ask_number
+  - intent: goodbye
+  # - active_loop: null
+  - action: utter_continue_room_booking
+  - intent: goodbye
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: unhappypath_2_activities
+  steps:
+  - intent: greet
+  - action: utter_greet
+  # - intent: ask_what_to_do
+  # # - action: activity_form
+  # # - active_loop: activity_form
+  # - action: utter_find_activity
+  - intent: ask_cancel_policy
+  - action: utter_cancel_policy_info
+  # - active_loop: null
+  # - action: utter_continue_activity_search
+  - intent: outdoors
+    entities:
+    - activity: "outdoors"
+  - action: utter_ask_activity_cost
+  - intent: goodbye
+  - action: utter_continue_activity_search
+  - intent: goodbye
+  - action: utter_anything_else
+  - intent: goodbye
+  - action: utter_goodbye

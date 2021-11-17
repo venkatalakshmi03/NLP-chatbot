@@ -1,0 +1,391 @@
+version: "2.0"
+
+nlu:
+- intent: book_room
+  examples: |
+    - I want to book [one](number) room 
+    - May I get a room
+    - Are rooms available
+    - Can I get a room please
+    - I need to get a room here
+    - Help me get a room
+    - I want to book [2](number) rooms
+    - Can I get [three](number) rooms
+    - Are [4](number) rooms available
+
+
+- intent: clean_room
+  examples: |
+    - I want to have my room cleaned
+    - Can you please send someone to clean room
+    - clean room
+    - room clean
+    - get room cleaned
+    - clean my room room
+    - i wanted room cleaning service
+    - i need to get room cleaned now
+    - want to clean room at [4pm](time)
+
+- intent: ask_room_supplies
+  examples: |
+    - I want room supplies
+    - Can you please room supplies please
+    - room supplies
+    - I need room supplies
+    - get my room supplies
+    - I need help with room supplies
+    - please sned room supplies
+
+- intent: ask_extend_room
+  examples: |
+    - I want to extend my room
+    - Can you please extend my room
+    - room extension
+    - I need room extension
+    - Can you extend my room
+    - Whom should I ask for room extension
+    - who will help me with room extension
+
+- intent: inform
+  examples: |
+    - [simple](type_room)
+    - [deluxe](type_room)
+    - [simple](type_room) room please
+    - [deluxe](type_room) room please
+    - [1](number)
+    - [one](number)
+    - [two](number) rooms
+    - i want to book [3](number) rooms
+    - can you book [five](number) rooms 
+
+
+- intent: ask_checkin_time
+  examples: |
+    - What are your check-in timings?
+    - May I know the check-in timings?
+    - Can you tell me the check-in timings?
+    - Please let me know the check-in time
+    - Can I check-in early?
+    - Do you allow early check-in?
+    - what is the check-in time?
+    - Is there any age criteria for check-in?
+    - what is the min age to do a check-in?
+
+- intent: ask_checkout_time
+  examples: |
+    - What are your check-out timings?
+    - May I know the check-out timings?
+    - Can you tell me the check-out timings?
+    - Please let me know the check-out time
+    - Can I check-out late?
+    - Do you allow late check-out?
+    - what is the check-out time?
+
+- intent: ask_cancel_reservation
+  examples: |
+    - How do I cancel a reservation?
+    - how to cancel booking?
+    - cancel reservation
+    - instructions for reservation cancellation
+    - cancel my room reservations
+    - I want to cancel my bookings
+    - how to cancel a reservation?
+
+- intent: ask_cancel_policy
+  examples: |
+    - What is your cancellation policy?
+    - what is the cancellation policy?
+    - cancellation policy
+    - refund policy
+    - what is refund policy?
+    - when will i get my refund?
+
+
+- intent: ask_restaurant_present
+  examples: |
+    - Does the hotel have a restaurant?
+    - is restaurant present?
+    - Is there a restaurant present with the hotel?
+    - do you have a restaurant as well?
+    - is eatery available?
+    - do you serve food as well?
+    - is there any attached restaurant?
+
+
+- intent: ask_breakfast_available
+  examples: |
+    - Does the hotel offer breakfast?
+    - is there free breakfast?
+    - is complementry breakfast available?
+    - do you provide free breakfast?
+    - is breakfast included?
+
+
+- intent: ask_breakfast_time
+  examples: |
+    - What are the breakfast timings?
+    - what is breakfast timings?
+    - breakfast timings
+    - let me know breakfast timings
+    - give information about breakfast timings
+    - what is the breakfast duration?
+    - is breakfast timings different on weekends?
+
+
+- intent: ask_restaurant_time
+  examples: |
+    - What are the timings of your restaurant?
+    - restaurant timings
+    - when does the restaurant close?
+    - what time does restaurant close?
+    - at what time does the restaurant open?
+    - what is the restaurant opening time?
+
+
+- intent: out_of_scope
+  examples: |
+    - something random
+    - knf ifionfin
+    - dnfnfnoefin
+    - who is the president?
+    - can you answer anything?
+    - what is the capital of india
+    - what should i do today
+    - help me with my homework
+
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - thankyou
+    - thank you
+    - thanku 
+    - thank you so much
+    - no
+    - thanks
+    - thanks a lot
+    - thanks for the information
+    - okay thanks
+
+
+
+- intent: italian
+  examples: |
+    - Want to eat [spaghetti]{"entity": "food_type","value":"italian"}
+    - I want [lasagna]{"entity": "food_type","value":"italian"}
+    - I want to eat [linguine]{"entity": "food_type","value":"italian"}
+    - I would like to eat [pasta]{"entity": "food_type","value":"italian"}
+    - I am craving for [pizza]{"entity": "food_type","value":"italian"}
+    - Im craving to eat [sausage]{"entity": "food_type","value":"italian"}
+    - [italian]{"entity": "food_type","value":"italian"}
+    - [wine]{"entity": "food_type","value":"italian"}
+    - [bruschetta]{"entity": "food_type","value":"italian"}
+    - [caprese]{"entity": "food_type","value":"italian"}
+    - [mozzarella]{"entity": "food_type","value":"italian"}
+    - [pesto]{"entity": "food_type","value":"italian"}
+    - [polognese]{"entity": "food_type","value":"italian"}
+    - [capellini]{"entity": "food_type","value":"italian"}
+    - [ricotta]{"entity": "food_type","value":"italian"}
+    - [manicotti]{"entity": "food_type","value":"italian"}
+    - [ziti]{"entity": "food_type","value":"italian"}
+    - [rigatoni]{"entity": "food_type","value":"italian"}
+    - [Prosciutto]{"entity": "food_type","value":"italian"}
+
+- intent: american
+  examples: |
+    - [burger]{"entity": "food_type","value":"american"}
+    - [cheeseburger]{"entity": "food_type","value":"american"}
+    - [bbq]{"entity": "food_type","value":"american"}
+    - [fries]{"entity": "food_type","value":"american"}
+    - [chicken]{"entity": "food_type","value":"american"}
+    - [wings]{"entity": "food_type","value":"american"}
+    - [beer]{"entity": "food_type","value":"american"}
+    - [steak]{"entity": "food_type","value":"american"}
+    - [pork]{"entity": "food_type","value":"american"}
+    - [american]{"entity": "food_type","value":"american"}
+    - [tenders]{"entity": "food_type","value":"american"}
+    - [sliders]{"entity": "food_type","value":"american"}
+    - [cobb salad]{"entity": "food_type","value":"american"}
+    - [sandwich]{"entity": "food_type","value":"american"}
+    - [cheesesteak]{"entity": "food_type","value":"american"}
+    - [ribs]{"entity": "food_type","value":"american"}
+    - [onion rings]{"entity": "food_type","value":"american"}
+    - [coleslaw]{"entity": "food_type","value":"american"}
+    - [tots]{"entity": "food_type","value":"american"}
+
+# - intent: chinese
+#   examples: |
+#     - hunan
+#     - contonese
+#     - dim sum
+#     - lo mein
+#     - szechuan
+#     - egg roll
+#     - fried rice
+#     - rangoon
+#     - wonton
+#     - general tso's
+#     - general tso
+#     - dumpling
+#     - kung pao
+    
+# - intent: japanese
+#   examples: |
+#     - sushi
+#     - tuna
+#     - rolls
+#     - tempura
+#     - sake
+#     - ramen
+#     - soba
+#     - hand rolls
+#     - udon
+#     - sashimi
+#     - miso
+
+- intent: mexican
+  examples: |
+    - [tacos]{"entity": "food_type","value":"mexican"}
+    - [burrito]{"entity": "food_type","value":"mexican"}
+    - [tamales]{"entity": "food_type","value":"mexican"}
+    - [tempura]{"entity": "food_type","value":"mexican"}
+    - [fajita]{"entity": "food_type","value":"mexican"}
+    - [enchiladas]{"entity": "food_type","value":"mexican"}
+
+# - intent: ask_what_to_do
+#   examples: |
+#     - I'm bored
+#     - fun things to do
+#     - what should we do today
+#     - need plans
+#     - activity
+#     - how should we spend our day
+#     - what are the attractions
+#     - how can i spend time
+#     - i am feeling bored
+#     - can you suggest any outdoor activities
+#     - how should i spend my day
+#     - how should i spend my day in this city
+#     - suggest activities
+#     - can you suggest fun activities
+#     - can you help with nearby attractions
+
+
+
+- intent: outdoors
+  examples: |
+    - i want to [hike]{"entity": "activity","value":"outdoors"}
+    - i want to go for [hiking]{"entity": "activity","value":"outdoors"}
+    - have any [parks] here ?{"entity": "activity","value":"outdoors"}
+    - i want to go to [park]{"entity": "activity","value":"outdoors"}
+    - [park]{"entity": "activity","value":"outdoors"}
+
+- intent: relax
+  examples: |
+    - i want to go to [spa]{"entity": "activity","value":"relax"}
+    - i am feeling [tired]{"entity": "activity","value":"relax"}
+    - i want a [massage]{"entity": "activity","value":"relax"}
+    - [salon]{"entity": "activity","value":"relax"}
+    - i want to go to [salon]{"entity": "activity","value":"relax"}
+
+- intent: pay_activity
+  examples: |
+    - [pay]{"entity": "cost","value":"pay"}
+    - [spend money]{"entity": "cost","value":"pay"}
+    - [expensive]{"entity": "cost","value":"pay"}
+    - [any price]{"entity": "cost","value":"pay"}
+    - [how much money]{"entity": "cost","value":"pay"}
+    - [yes]{"entity": "cost","value":"pay"}
+    - [yeah]{"entity": "cost","value":"pay"}
+    - [of course]{"entity": "cost","value":"pay"}
+    - [sure]{"entity": "cost","value":"pay"}
+    - [no problem]{"entity": "cost","value":"pay"}
+    - [s]{"entity": "cost","value":"pay"}
+
+- intent: free_activity
+  examples: |
+    - [free]{"entity": "cost","value":"free"}
+    - [save money]{"entity": "cost","value":"free"}
+    - [inexpensive]{"entity": "cost","value":"free"}
+    - [cheap]{"entity": "cost","value":"free"}
+    - [not so expensive activity]{"entity": "cost","value":"free"}
+    - [no]{"entity": "cost","value":"free"}
+    - [not at all]{"entity": "cost","value":"free"}
+    - [nope]{"entity": "cost","value":"free"}
+    - [i dont want to spend]{"entity": "cost","value":"free"}
+    - [dont spend money]{"entity": "cost","value":"free"}
+
+
+- intent: chitchat/thanks
+  examples: |
+    - thx
+    - Awesome, thanks!
+    - thanks mate
+    - thank you
+- intent: chitchat/confirm_presence
+  examples: |
+    - are you there?
+- intent: chitchat/capabilities
+  examples: |
+    - What else can you do?
+    - what can you do?
+- intent: chitchat/mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - cool beans
+- intent: chitchat/mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+    - this is not working
+    - you suck
