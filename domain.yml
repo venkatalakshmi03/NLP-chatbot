@@ -1,0 +1,225 @@
+version: "2.0"
+
+intents:
+  - book_room
+  - clean_room
+  - greet
+  - goodbye
+  - inform
+  - ask_checkin_time
+  - ask_checkout_time
+  - ask_cancel_reservation
+  - ask_cancel_policy
+  - ask_restaurant_present
+  - ask_breakfast_available
+  - ask_breakfast_time
+  - ask_restaurant_time
+  - out_of_scope
+  - chitchat
+  - italian
+  - american
+  # - japanese
+  # - chinese
+  - mexican
+  - ask_what_to_do
+  - outdoors
+  - relax
+  - pay_activity
+  - free_activity
+  - ask_room_supplies
+  - ask_extend_room
+  - chitchat/thanks
+  - chitchat/confirm_presence
+  - chitchat/capabilities
+  - chitchat/mood_great
+  - chitchat/mood_unhappy
+  # - what_to_do
+  # - outdoors
+
+entities:
+  # - time
+  - number
+  - type_room
+  - food_type
+  - activity
+  - cost
+
+slots:
+  # time:
+  #   type: any
+  number:
+    type: any
+  type_room:
+    type: any
+  food_type:
+    type: any
+  activity:
+    type: any
+  cost:
+    type: any
+    # influence_conversation: true
+    # values:
+    # - italian
+    # - mexican
+    # - american
+    # - chinese
+    # - japanese
+  # activity_type:
+  #   type: any
+  #   influence_conversation: true
+  #   values:
+  #   - outdoors
+
+
+responses:
+  utter_greet:
+  - text: "Hi! How may I help you?"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  # Room Book related utterances
+  utter_ask_number:
+  - text: "How many rooms would you like to book?"
+
+  utter_ask_type_room:
+  - text: "What type of room would you want to book Simple/Deluxe?"
+
+  utter_continue_room_booking:
+  - text: "Would you like to continue with room booking?"
+
+  utter_continue_activity_search:
+  - text: "Would you like to continue with activity search?"
+
+  # Room Cleaning related utterances
+  utter_ask_time:
+  - text: "When should I arrange for a cleaning?"
+  
+  utter_roomclean_confirmation:
+  - text: "Sure. I will schedule today for roomcleaning"
+
+  utter_roomsupplies_confirmation:
+  - text: "Sure. I will send message to reception to send room supplies"
+
+  utter_roomextend_confirmation:
+  - text: "Sure. I will send message to reception to extend your room. They will contact you shortly"
+
+  # FAQ utterances
+  utter_checkin_time_info:
+  - text: "Check-in time starts at 4 PM. Minimum check-in age is 21. Please contact the reception for early check-in requests."
+
+  utter_checkout_time_info:
+  - text: "Check-out time is 11 AM. Please contact the reception for late checkout requests."
+
+  utter_cancel_reservation_info_1:
+  - text: "To cancel a reservation, select the “Reservations” link from the homepage."
+
+  utter_cancel_reservation_info_2:
+  - text: "On the Reservations page, under the heading 'View, Change or Cancel a Reservation,' enter your confirmation number, and either the last name on the reservation or the last four digits of the credit card used to make the reservation."
+
+  utter_cancel_policy_info:
+  - text: "The booking deposit is refundable if the cancellation occurs at least 15 days before arrival. For cancellations made after this limit, a penalty will be imposed based on the cancellation policy."
+
+  utter_restaurant_present_info:
+  - text: "Yes, the hotel has a restaurant.You can call the restaurant for the Menu"
+
+  utter_breakfast_available_info:
+  - text: "The hotel provides its guests with a free made-to-order breakfast each morning."
+
+  utter_breakfast_time_info:
+  - text: "Monday through Friday breakfast is 6 am to 9 am. On Saturday and Sunday, we are open from 7 am to 10:30 am."
+
+  utter_restaurant_time_info:
+  - text: "Our restaurant serves a dazzling 24-hour menu."
+
+  utter_out_of_scope:
+  - text: "Sorry, I can only process room booking and cleaning requests."
+
+  utter_chitchat/thanks:
+  - text: No problem!
+  # - text: I have no choice but to help you.
+  # - text: I try my best
+
+  utter_chitchat/confirm_presence:
+  - text: yep I'm here.
+  # - text: unfortunately, I'm still listening.
+
+  utter_chitchat/capabilities:
+  - text: I can help you with questions regrading your stay in this hotel, suggestions on food restaurants and outdoor activities nearby
+
+  utter_chitchat/mood_great:
+  # - text: Superb!
+  - text: right on
+
+  utter_chitchat/mood_unhappy:
+  - text: sorry to hear that :(
+  # - text: ok can you be nice to me
+
+  utter_chitchat/bot_challenge:
+  - text: I'm a bot, built using Rasa! Beep boop
+
+  utter_chitchat/goodbye:
+  - text: bye bye
+  # - text: c u later
+
+  # utter_ask_cuisine:
+  # - text: What type of food are you interested?
+
+  utter_anything_else:
+  - text: Can I help you with anything else today?
+
+  # utter_find_activity:
+  # - text: There are plenty of activities to do around here.What type of activity do you feel like today?
+
+  utter_ask_activity_cost:
+  - text: Would you like pay for the activity? 
+
+
+
+
+forms:
+  room_book_form:
+    ignored_intents:
+      - chitchat
+    required_slots:
+      number:
+        - type: from_entity
+          entity: number
+      type_room:
+        - type: from_entity
+          entity: type_room
+
+  # clean_room_form:
+  #   ignored_intents:
+  #     - chitchat
+  #   required_slots:
+  #     time:
+  #       - type: from_entity
+  #         entity: time
+  restaurant_form:
+    food_type:
+      - type: from_entity
+        entity: food_type
+      # - type: from_entity
+      #   entity: food_type
+
+  activity_form:
+    activity:
+    - type: from_entity
+      entity: activity
+    cost:
+    - type: from_entity
+      entity: cost
+      # value: free
+    # - type: from_entity
+    #   entity: cost
+      # value: cost
+
+actions:
+  - action_room_book_results
+  - action_search_activities
+  - action_search_restaurants
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
