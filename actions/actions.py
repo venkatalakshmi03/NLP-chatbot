@@ -35,58 +35,6 @@ class ActionRoomBookResults(Action):
         return [Restarted()]
 
 
-# class ActionCleanRoomResults(Action):
-#     def name(self) -> Text:
-#         return "action_clean_room_results"
-
-#     def run(
-#         self,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: Dict[Text, Any],
-#     ) -> List[Dict]:
-#         raw_clean_time = tracker.get_slot("time")
-#         print(raw_clean_time)
-#         # try:
-#         # 	clean_time = dict(tracker.get_slot("time"))
-#         # 	clean_time = clean_time['from']
-#         # except:
-#         # 	clean_time = tracker.get_slot("time")
-
-#         # date = clean_time[0:10]
-#         # time = clean_time[11:19]
-
-#         # # ist = datetime.datetime.strptime(str(date) + ' ' + str(time), '%Y-%m-%d %H:%M:%S') + datetime.timedelta(hours=5, minutes=30)
-#         # ist = datetime.datetime.strptime(str(date) + ' ' + str(time), '%Y-%m-%d %H:%M:%S')
-#         # ist_now = datetime.datetime.now()
-
-#         # difference = ist - ist_now
-#         # print(raw_clean_time)
-#         # print(ist)
-#         # print(ist_now)
-#         # print(difference.total_seconds())
-#         # print(difference.days)
-#         # print('===================')
-
-#         # day_difference = (ist - ist_now.replace(hour=0, minute=0, second=0)).days
-
-#         # if difference.total_seconds() <= 60:
-#         #     dispatcher.utter_message("Sure, I will send someone to your room right away.")
-#         #     return [Restarted()]
-
-#         # if int(day_difference) == 0 :
-#         # 	formatted_time = ist.strftime("%I:%M %p")
-#         # 	dispatcher.utter_message("Sure, I have scheduled a cleaning for " + str(formatted_time) + " today.")
-#         # 	return [Restarted()]
-#         # elif int(day_difference) == 1:
-#         # 	formatted_time = ist.strftime("%I:%M %p")
-#         # 	dispatcher.utter_message("Sure, I have scheduled a cleaning for " + str(formatted_time) + " tomorrow.")
-#         # 	return [Restarted()]
-#         # else:
-#         # 	formatted_time = ist.strftime("%I:%M %p on %d %b %Y.")
-#         dispatcher.utter_message(f'Sure, I have scheduled a cleaning at {str(raw_clean_time)}')
-#         return [Restarted()]
-
 class action_search_restaurants(Action):
     def name(self) -> Text:
         return "action_search_restaurants"
@@ -95,18 +43,7 @@ class action_search_restaurants(Action):
         
 
         category = tracker.get_slot('food_type')
-        # print(category)
-
-        # df = pd.read_csv('/home/pravalli/hotel_room_bot/Simple-Hotel-Management-Chatbot/cuisine.csv')
-        # print(df.head())
-                
-        # if category == 'italian':
-        #     output = df[df['Cuisine'] == 'italian']
-        #     print(output)
-        # elif category == 'american':
-        #     output = df[df['Cuisine'] == 'american']
-        # elif category == 'mexican':
-        #     output = df[df['Cuisine'] == 'mexican']
+        
         if category == 'italian':
             output = 'You have chosen Italian cuisine.Nearby Italian restaurants are Pizza Antica, Paesano Ristorante Italiano, Mio Vicino'
         if category == 'american':
@@ -128,18 +65,7 @@ class action_search_activities(Action):
 
         activity = tracker.get_slot('activity')
         cost = tracker.get_slot('cost')
-        # print(category)
-
-        # df = pd.read_csv('/home/pravalli/hotel_room_bot/Simple-Hotel-Management-Chatbot/cuisine.csv')
-        # print(df.head())
-                
-        # if category == 'italian':
-        #     output = df[df['Cuisine'] == 'italian']
-        #     print(output)
-        # elif category == 'american':
-        #     output = df[df['Cuisine'] == 'american']
-        # elif category == 'mexican':
-        #     output = df[df['Cuisine'] == 'mexican']
+        
         if (activity == 'outdoors') and (cost == 'pay'):
             output = 'Nearby places for outdoor activities.These places might have entry fee 1. Rose Garden - garden to play with kids 2. Hermon Adventures - Has zip line and hike trails 3. Vasona Park - Has train ride and hike trails'
         if activity == 'outdoors' and cost == 'free':
@@ -156,38 +82,3 @@ class action_search_activities(Action):
         return [Restarted()]
 
 
-# class HotelBookForm(FormAction):
-
-#     def name(self):
-#         return "hotel_book_form"
-
-
-#     @staticmethod
-#     def required_slots(tracker):
-#         return ["number", "type_room"]
-
-
-#     def submit(
-#         self,
-#         dispatcher: CollectingDispatcher,
-#         tracker: Tracker,
-#         domain: Dict[Text, Any],
-#     ) -> List[Dict]:
-
-#         dispatcher.utter_message("Thanks, great job!")
-#         return []
-
-#
-#
-# class ActionHelloWorld(Action):
-#
-#     def name(self) -> Text:
-#         return "action_hello_world"
-#
-#     def run(self, dispatcher: CollectingDispatcher,
-#             tracker: Tracker,
-#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-#
-#         dispatcher.utter_message(text="Hello World!")
-#
-#         return []
