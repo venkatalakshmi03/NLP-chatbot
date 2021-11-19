@@ -24,15 +24,15 @@ intents:
   - ask_what_to_do
   - outdoors
   - relax
-  - pay_activity
+  - pay_Activity
   - free_activity
   - ask_room_supplies
   - ask_extend_room
-  - chitchat/thanks
-  - chitchat/confirm_presence
-  - chitchat/capabilities
-  - chitchat/mood_great
-  - chitchat/mood_unhappy
+  # - chitchat/thanks
+  - confirm_presence
+  - capabilities
+  - mood_great
+  - mood_unhappy
   # - what_to_do
   # - outdoors
 
@@ -78,7 +78,7 @@ responses:
   utter_goodbye:
   - text: "Bye"
 
-  # Room Book related utterances
+  
   utter_ask_number:
   - text: "How many rooms would you like to book?"
 
@@ -91,9 +91,7 @@ responses:
   utter_continue_activity_search:
   - text: "Would you like to continue with activity search?"
 
-  # Room Cleaning related utterances
-  utter_ask_time:
-  - text: "When should I arrange for a cleaning?"
+
   
   utter_roomclean_confirmation:
   - text: "Sure. I will schedule today for roomcleaning"
@@ -135,41 +133,26 @@ responses:
   utter_out_of_scope:
   - text: "Sorry, I can only process room booking and cleaning requests."
 
-  utter_chitchat/thanks:
-  - text: No problem!
-  # - text: I have no choice but to help you.
-  # - text: I try my best
 
-  utter_chitchat/confirm_presence:
+  utter_confirm_presence:
   - text: yep I'm here.
-  # - text: unfortunately, I'm still listening.
+ 
 
-  utter_chitchat/capabilities:
-  - text: I can help you with questions regrading your stay in this hotel, suggestions on food restaurants and outdoor activities nearby
+  utter_capabilities:
+  - text: I can help you with questions regarding your stay in this hotel, suggestions on food restaurants and outdoor activities nearby
 
-  utter_chitchat/mood_great:
-  # - text: Superb!
+  utter_mood_great:
+ 
   - text: right on
 
-  utter_chitchat/mood_unhappy:
+  utter_mood_unhappy:
   - text: sorry to hear that :(
-  # - text: ok can you be nice to me
+ 
 
-  utter_chitchat/bot_challenge:
-  - text: I'm a bot, built using Rasa! Beep boop
-
-  utter_chitchat/goodbye:
-  - text: bye bye
-  # - text: c u later
-
-  # utter_ask_cuisine:
-  # - text: What type of food are you interested?
 
   utter_anything_else:
   - text: Can I help you with anything else today?
 
-  # utter_find_activity:
-  # - text: There are plenty of activities to do around here.What type of activity do you feel like today?
 
   utter_ask_activity_cost:
   - text: Would you like pay for the activity? 
@@ -189,19 +172,12 @@ forms:
         - type: from_entity
           entity: type_room
 
-  # clean_room_form:
-  #   ignored_intents:
-  #     - chitchat
-  #   required_slots:
-  #     time:
-  #       - type: from_entity
-  #         entity: time
+
   restaurant_form:
     food_type:
       - type: from_entity
         entity: food_type
-      # - type: from_entity
-      #   entity: food_type
+    
 
   activity_form:
     activity:
@@ -210,10 +186,7 @@ forms:
     cost:
     - type: from_entity
       entity: cost
-      # value: free
-    # - type: from_entity
-    #   entity: cost
-      # value: cost
+   
 
 actions:
   - action_room_book_results
