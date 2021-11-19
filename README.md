@@ -9,6 +9,10 @@ rasa train
 rasa shell
 rasa run actions
 ```
+***Presentation Slides***
+[Hotel_Chatbot.pptx](https://github.com/venkatalakshmi03/NLP-chatbot/files/7567010/Hotel_Chatbot.pptx)
+
+
 ***Sample Conversational Flows***
 
 ![Screen Capture_select-area_20211117130211](https://user-images.githubusercontent.com/72240632/142519628-41908fef-f452-45a2-a95b-1e7caf08c147.jpg)
