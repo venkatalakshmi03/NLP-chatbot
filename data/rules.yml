@@ -12,16 +12,7 @@ rules:
     # The action we want to run when the form is submitted.
     - action: action_room_book_results
 
-# # Rule for room cleaning
-# - rule: checking hotel clean room form is completed
-#   condition:
-#     # Condition that form is active.
-#     - active_loop: clean_room_form
-#   steps:
-#     - action: clean_room_form
-#     - active_loop: null
-#     # The action we want to run when the form is submitted.
-#     - action: action_clean_room_results
+
 
     
 
@@ -87,5 +78,45 @@ rules:
     - action: utter_out_of_scope
   wait_for_user_input: false
 
+- rule: Ask room extend
+  steps:
+    - intent: ask_extend_room
+    - action: utter_roomextend_confirmation
+  wait_for_user_input: false
 
+- rule: Ask room supplies
+  steps:
+    - intent: ask_room_supplies
+    - action: utter_roomsupplies_confirmation
+  wait_for_user_input: false
 
+- rule: Ask room cleaning
+  steps:
+    - intent: clean_room
+    - action: utter_roomclean_confirmation
+  wait_for_user_input: false
+
+# Rules related to small talk
+- rule: when asked presence
+  steps:
+    - intent: confirm_presence
+    - action: utter_confirm_presence
+  wait_for_user_input: false
+
+- rule: when asked about happy mood
+  steps:
+    - intent: mood_great
+    - action: utter_mood_great
+  wait_for_user_input: false
+
+- rule: when asked about unhappy mood
+  steps:
+    - intent: mood_unhappy
+    - action: utter_mood_unhappy
+  wait_for_user_input: false
+
+- rule: when asked about capabilities
+  steps:
+    - intent: capabilities
+    - action: utter_capabilities
+  wait_for_user_input: false

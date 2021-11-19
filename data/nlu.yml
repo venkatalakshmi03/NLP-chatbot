@@ -238,36 +238,6 @@ nlu:
     - [coleslaw]{"entity": "food_type","value":"american"}
     - [tots]{"entity": "food_type","value":"american"}
 
-# - intent: chinese
-#   examples: |
-#     - hunan
-#     - contonese
-#     - dim sum
-#     - lo mein
-#     - szechuan
-#     - egg roll
-#     - fried rice
-#     - rangoon
-#     - wonton
-#     - general tso's
-#     - general tso
-#     - dumpling
-#     - kung pao
-    
-# - intent: japanese
-#   examples: |
-#     - sushi
-#     - tuna
-#     - rolls
-#     - tempura
-#     - sake
-#     - ramen
-#     - soba
-#     - hand rolls
-#     - udon
-#     - sashimi
-#     - miso
-
 - intent: mexican
   examples: |
     - [tacos]{"entity": "food_type","value":"mexican"}
@@ -277,23 +247,7 @@ nlu:
     - [fajita]{"entity": "food_type","value":"mexican"}
     - [enchiladas]{"entity": "food_type","value":"mexican"}
 
-# - intent: ask_what_to_do
-#   examples: |
-#     - I'm bored
-#     - fun things to do
-#     - what should we do today
-#     - need plans
-#     - activity
-#     - how should we spend our day
-#     - what are the attractions
-#     - how can i spend time
-#     - i am feeling bored
-#     - can you suggest any outdoor activities
-#     - how should i spend my day
-#     - how should i spend my day in this city
-#     - suggest activities
-#     - can you suggest fun activities
-#     - can you help with nearby attractions
+
 
 
 
@@ -313,7 +267,7 @@ nlu:
     - [salon]{"entity": "activity","value":"relax"}
     - i want to go to [salon]{"entity": "activity","value":"relax"}
 
-- intent: pay_activity
+- intent: pay_Activity
   examples: |
     - [pay]{"entity": "cost","value":"pay"}
     - [spend money]{"entity": "cost","value":"pay"}
@@ -341,20 +295,17 @@ nlu:
     - [dont spend money]{"entity": "cost","value":"free"}
 
 
-- intent: chitchat/thanks
-  examples: |
-    - thx
-    - Awesome, thanks!
-    - thanks mate
-    - thank you
-- intent: chitchat/confirm_presence
+
+- intent: confirm_presence
   examples: |
     - are you there?
-- intent: chitchat/capabilities
+    - u there
+
+- intent: capabilities
   examples: |
     - What else can you do?
     - what can you do?
-- intent: chitchat/mood_great
+- intent: mood_great
   examples: |
     - perfect
     - great
@@ -371,7 +322,7 @@ nlu:
     - so good
     - so perfect
     - cool beans
-- intent: chitchat/mood_unhappy
+- intent: mood_unhappy
   examples: |
     - my day was horrible
     - I am sad
