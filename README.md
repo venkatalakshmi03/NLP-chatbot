@@ -10,7 +10,7 @@ rasa shell
 rasa run actions
 ```
 ***Presentation Slides***
-[Hotel_Chatbot.pptx](https://github.com/venkatalakshmi03/NLP-chatbot/files/7567010/Hotel_Chatbot.pptx)
+[Hotel_Chatbot_v3.pptx](https://github.com/venkatalakshmi03/NLP-chatbot/files/7653453/Hotel_Chatbot_v3.pptx)
 
 
 ***Sample Conversational Flows***
